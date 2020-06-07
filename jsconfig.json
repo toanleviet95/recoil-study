@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "atoms/*": ["./src/recoil/atoms/*"],
+      "selectors/*": ["./src/recoil/selectors/*"],
+      "services/*": ["./src/services/*"],
+      "utils/*": ["./src/utils/*"]
+    }
+  }
+}

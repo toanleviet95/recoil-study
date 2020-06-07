@@ -1,0 +1,71 @@
+{
+  "name": "react-sample-with-parcel",
+  "version": "1.0.0",
+  "description": "React sample with parcel",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development parcel src/index.html --open",
+    "build": "cross-env NODE_ENV=production parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:style": "stylelint ./src/*",
+    "lint": "eslint --ext .js src && npm run lint:style",
+    "lint:fix": "eslint --fix --ext .js src && npm run lint:style",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx",
+    "prettier": "prettier --write ./src/*"
+  },
+  "author": "toanleviet95@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "atoms": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12",
+    "react-dom": "^16.12",
+    "recoil": "^0.0.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^5.1.1",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-loader": "^3.0.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-compat": "^2.6.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "husky": "^1.1.2",
+    "lint-staged": "^7.2.0",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "1.14.3",
+    "stylelint": "^9.4.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-standard": "^18.0.0"
+  },
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": "git add",
+    "**/*.{js,jsx}": "yarn lint-staged:js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  },
+  "alias": {
+    "components": "./src/components",
+    "atoms": "./src/recoil/atoms",
+    "selectors": "./src/recoil/selectors",
+    "services": "./src/services",
+    "utils": "./src/utils"
+  }
+}
